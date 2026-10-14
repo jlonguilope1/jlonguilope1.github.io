@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Julian L. · Bug Fixing & Small Automations</title>
+<meta name="description" content="I fix bugs in Python, Java, C and JavaScript code, and build small automations for CSV, Excel and Google Sheets.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0b1020;--panel:#121a33;--line:#24305a;--text:#e6e9f5;--muted:#9aa4c7;--accent:#4ade80;--accent2:#60a5fa;--red:#f87171}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6}
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+  nav{position:sticky;top:0;background:rgba(11,16,32,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:5}
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+  nav .logo{font-family:'JetBrains Mono',monospace;font-weight:600}
+  nav .logo span{color:var(--accent)}
+  nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+  nav ul a{text-decoration:none;color:var(--muted);font-size:15px}
+  nav ul a:hover{color:var(--text)}
+  .hero{padding-top:90px;padding-bottom:70px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+  .tag{font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:14px;letter-spacing:1px}
+  h1{font-size:clamp(36px,6vw,58px);line-height:1.05;margin:12px 0 18px;font-weight:800}
+  h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{color:var(--muted);font-size:18px;max-width:520px}
+  .btns{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:600;text-decoration:none;border:1px solid var(--line)}
+  .btn.primary{background:var(--accent);color:#06210f;border-color:var(--accent)}
+  .btn:hover{transform:translateY(-1px)}
+  .term{background:#060a17;border:1px solid var(--line);border-radius:14px;overflow:hidden;font-family:'JetBrains Mono',monospace;font-size:14px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+  .term .bar{display:flex;gap:6px;padding:10px 14px;background:#0f1630;border-bottom:1px solid var(--line)}
+  .term .bar i{width:11px;height:11px;border-radius:50%;background:#334}
+  .term .bar i:nth-child(1){background:#f87171}.term .bar i:nth-child(2){background:#fbbf24}.term .bar i:nth-child(3){background:#4ade80}
+  .term pre{margin:0;padding:18px;white-space:pre-wrap}
+  .r{color:var(--red)}.g{color:var(--accent)}.b{color:var(--accent2)}.m{color:#64748b}
+  section{padding:60px 0;border-top:1px solid var(--line)}
+  h2{font-size:30px;margin:0 0 8px}
+  .sub{color:var(--muted);margin:0 0 30px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .card h3{margin:0 0 6px;font-size:18px}
+  .card p{overflow-wrap:anywhere;margin:0;color:var(--muted);font-size:15px}
+  .lang{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12px;padding:3px 8px;border-radius:6px;background:#1b2550;color:var(--accent2);margin-bottom:12px}
+  .card a.more{display:inline-block;margin-top:14px;color:var(--accent);text-decoration:none;font-weight:600;font-size:14px}
+  .steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+  .step{position:relative;padding:22px 22px 22px 70px;background:var(--panel);border:1px solid var(--line);border-radius:14px}
+  .step::before{counter-increment:s;content:counter(s);position:absolute;left:22px;top:20px;width:32px;height:32px;border-radius:50%;background:var(--accent);color:#06210f;font-weight:800;display:grid;place-items:center}
+  .step h3{margin:0 0 4px;font-size:17px}.step p{margin:0;color:var(--muted);font-size:15px}
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .chips span{border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:14px;color:var(--muted)}
+  .cta{text-align:center;padding:70px 0}
+  footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:14px;text-align:center}
+  @media (max-width:800px){.hero,.about{grid-template-columns:1fr}.hero{padding-top:50px}nav ul{display:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <div class="logo">julian<span>.fix()</span></div>
+  <ul><li><a href="#services">Services</a></li><li><a href="#work">Work</a></li><li><a href="#how">How it works</a></li><li><a href="#about">About</a></li></ul>
+</div></nav>
+
+<header class="wrap hero">
+  <div>
+    <div class="tag">// BUG FIXING · AUTOMATION</div>
+    <h1>Your code is broken.<br><em>I'll make it work.</em></h1>
+    <p class="lead">I'm Julian. Send me the code that's giving you a headache (Python, Java, C or JavaScript) and I'll find what's wrong, fix it and explain it so it makes sense. I also build small scripts so you stop doing the same spreadsheet chores by hand.</p>
+    <div class="btns">
+      <a class="btn primary" href="FIVERR_URL">Hire me on Fiverr</a>
+      <a class="btn" href="#work">See my work</a>
+    </div>
+  </div>
+  <div class="term" aria-hidden="true">
+    <div class="bar"><i></i><i></i><i></i></div>
+<pre><span class="m">$</span> python3 report.py
+<span class="r">ZeroDivisionError: division by zero</span>
+
+<span class="m"># root cause: empty list → len() == 0</span>
+<span class="b">return</span> sum(s) / len(s) <span class="b">if</span> s <span class="b">else</span> None
+
+<span class="m">$</span> python3 report.py
+<span class="g">✓ report generated · 4 tests passed</span></pre>
+  </div>
+</header>
+
+<section id="services"><div class="wrap">
+  <h2>Services</h2>
+  <p class="sub">Small jobs, done properly and without making you wait.</p>
+  <div class="grid">
+    <div class="card"><span class="lang">Python</span><h3>Script fixing</h3><p>Errors, crashes, wrong output, automation scripts that stopped working.</p></div>
+    <div class="card"><span class="lang">Java · C</span><h3>Program debugging</h3><p>Compile errors, exceptions, memory bugs and logic errors.</p></div>
+    <div class="card"><span class="lang">JS · HTML · CSS</span><h3>Website fixes</h3><p>Broken layouts, buttons that do nothing, async bugs, small changes.</p></div>
+    <div class="card"><span class="lang">CSV · Excel · Sheets</span><h3>Data automation</h3><p>Clean messy data, formulas, reports and small scripts that save you hours.</p></div>
+  </div>
+</div></section>
+
+<section id="work"><div class="wrap">
+  <h2>Work</h2>
+  <p class="sub">Some bugs I've fixed, with the code before and after.</p>
+  <div class="grid">
+    <div class="card"><span class="lang">Python</span><h3>Crash on empty data</h3><p>Fixed a <code>ZeroDivisionError</code> and a hidden shared-state bug caused by a mutable default argument.</p><a class="more" href="https://github.com/jlonguilope1/bug-fix-case-studies/tree/main/01-python-average">View case →</a></div>
+    <div class="card"><span class="lang">Java</span><h3>Crash while removing items</h3><p><code>ConcurrentModificationException</code> when removing items from a list while looping. Replaced with a safe <code>removeIf</code>.</p><a class="more" href="https://github.com/jlonguilope1/bug-fix-case-studies/tree/main/02-java-concurrent-modification">View case →</a></div>
+    <div class="card"><span class="lang">C</span><h3>Buffer overflow</h3><p>Fixed a stack overflow and a dangling pointer. Verified with AddressSanitizer.</p><a class="more" href="https://github.com/jlonguilope1/bug-fix-case-studies/tree/main/03-c-buffer-overflow">View case →</a></div>
+    <div class="card"><span class="lang">JavaScript</span><h3>Async loop returns 0</h3><p><code>forEach</code> with <code>async</code> didn't wait. Rewritten with <code>Promise.all</code>, now also faster.</p><a class="more" href="https://github.com/jlonguilope1/bug-fix-case-studies/tree/main/04-js-async-loop">View case →</a></div>
+    <div class="card"><span class="lang">Python tool</span><h3>CSV Report Tool</h3><p>Cleans messy sales data (mixed dates, number formats, duplicates) and builds a summary report. With tests.</p><a class="more" href="https://github.com/jlonguilope1/csv-report-tool">View project →</a></div>
+  </div>
+</div></section>
+
+<section id="how"><div class="wrap">
+  <h2>How it works</h2>
+  <p class="sub">No surprises.</p>
+  <div class="steps">
+    <div class="step"><h3>Send the problem</h3><p>Message me on Fiverr with your code and the error you're getting.</p></div>
+    <div class="step"><h3>Get a clear quote</h3><p>I take a look first and tell you honestly if I can fix it and what it would cost.</p></div>
+    <div class="step"><h3>Receive the fix</h3><p>You get code that works, tested, and a short note on what was going on.</p></div>
+  </div>
+</div></section>
+
+<section id="about"><div class="wrap about">
+  <div>
+    <h2>About me</h2>
+    <p class="sub" style="margin-bottom:10px">I'm Julian, a Computer Engineering student at Universidade da Coruña (Spain). I studied for a year in the United States, so I work comfortably in English and Spanish.</p>
+    <p class="sub">I enjoy that moment when a bug that made no sense finally clicks. And I like explaining it, so it doesn't bite you again.</p>
+  </div>
+  <div>
+    <h3 style="margin-top:6px">Tech</h3>
+    <div class="chips"><span>Python</span><span>Java</span><span>C</span><span>JavaScript</span><span>HTML/CSS</span><span>OCaml</span><span>Git</span><span>Linux</span><span>Excel / Google Sheets</span></div>
+    <h3 style="margin-top:22px">Languages</h3>
+    <div class="chips"><span>Spanish · native</span><span>English · fluent</span></div>
+  </div>
+</div></section>
+
+<section class="cta"><div class="wrap">
+  <h2>Stuck on a bug?</h2>
+  <p class="sub">Send it over and we'll sort it out.</p>
+  <a class="btn primary" href="FIVERR_URL">Contact me on Fiverr</a>
+</div></section>
+
+<footer>© 2026 Julian L. · <a href="https://github.com/jlonguilope1">GitHub</a></footer>
+</body>
+</html>
